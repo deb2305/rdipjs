@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Palindrome</title>
+	<style type="text/css">
+		input{
+			color: blue;
+			border: 2px solid red;
+		}
+		button{
+			background-color: #fcba03;
+			border:2px solid red;
+		}
+		h1{
+			color: #323ea8;
+		}
+		
+	</style>
+</head>
+<body>
+	<div>
+	<h1>Check whether the string is Palindrome or not:-</h1>
+	<input name=check placeholder=palindrome ><button>Check</button><br>
+	<script type="text/javascript">
+		function palindrome(word){
+			var middle=Math.ceil(word.length/2),i;
+			for(i=0;i<=middle;++i){
+				if (word[i]!==word[(word.length-1)-i]) {
+					return false;
+				}
+			}
+			return true;
+		}
+		document.querySelector('button').addEventListener('click',function(e)
+		{
+			var element=document.querySelector('input');
+			if (palindrome(element.value)) {
+				element.classList.add('palindrome');
+				alert("Palindrome");
+			}
+			else{
+				element.classList.remove('palindrome');
+				alert("Sorry! Not a Palindrome")
+			}
+		});
+	</script>
+</div>
+</body>
+</html>
