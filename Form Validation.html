@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Form Validation</title>
+	<style >
+		label{
+			width:180px;
+			padding: 11px 11px 11px 0;
+			display: inline-block;
+		}
+		input[type=submit]{
+			background-color: #323ea8;
+			color:white;
+			padding: 12px 12px;
+			border: 2px solid red;
+			border-radius: 5px;
+			cursor: pointer;
+			float: center;
+		}
+		input[type=text]{
+			border:4px solid red;
+			background-color: #f58142;
+		}
+		input[type=cell]{
+			border:4px solid red;
+			background-color: #f58142;
+		}
+		input[type=submit]:hover{
+			background-color: green;
+		}
+		h1{
+			color: #323ea8;
+		}
+
+
+	</style>
+</head>
+<body>
+	<h1>Details Form:</h1>
+	<form action="#" onsubmit="return validation()">
+		<div class="form-group">
+			<label style= color:teal> <b>Name:</b></label>
+			<input type="text" name="Deb" class="form-control" id="name">
+			<span id="Name"> </span>
+		</div>
+		<div class="form-group">
+			<label style= color:teal> <b>Phone Number:</b></label>
+			<input type="cell" name="phone" class="form-control" id="phone">
+			<span id="Phone No."> </span>
+		</div>
+		<div class="form-group">
+			<label style= color:teal><b>E-mail:</b></label>
+			<input type="text" name="email" class="form-control" id="email">
+			<span id="E-mail"> </span>
+		</div>
+		<input type="submit" name="submit" value="submit">
+	</form>
+<script type="text/javascript" src="main.js">
+	
+</script>
+</body>
+</html>
