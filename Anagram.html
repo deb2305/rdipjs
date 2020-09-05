@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Anagram</title>
+	<style type="text/css">
+		input{
+			color: blue;
+			border: 2px solid red;
+		}
+		h1{
+			color: #323ea8;
+		}
+		input[type=button] {
+			background-color: #fcba03;
+			border:2px solid red;
+		}
+	</style>
+</head>
+<body>
+	<h1>Check whether these 2 strings are Anagrams or not:</h1>
+	<div class="strings" style= color:teal>
+		<b>String 1:</b><input type="text" name="string1" id="string1"/>
+		<b>String 2: </b><input type="text" name="string2" id="string2"/>
+		<input type="button" name="check-button" value="Test!" id="buton-test"/>
+	</div>
+	<div id="result"></div>
+	<script type="text/javascript">
+		var button = document.getElementById('buton-test');
+		button.addEventListener('click',checkAnagram);
+		var resultDiv = document.getElementById('result');
+		function checkAnagram(){
+			var str1 = document.getElementById('string1').value;
+			var str2 = document.getElementById('string2').value;
+			if (str1 !== null && str2 !== null) {
+				if (str1.length !== str2.length) {
+					resultDiv.innerHTML = " Sorry Strings are not Anagrams";
+					return false;
+				}
+				var hashTable ={};
+				for(var i=0;i<str1.length;i++){
+					if(hashTable.hasOwnProperty(str1[i])){
+						hashTable[str1[i]] = hashTable[str1[i]] + 1;
+					}
+					else{
+						hashTable[str1[i]]=1;
+					}
+				}
+				for(var i=0;i<str2.length;i++){
+					if (hashTable.hasOwnProperty(str2[i])) {
+						hashTable[str2[i]] = hashTable[str2[i]]-1;
+					}
+					else{
+					resultDiv.innerHTML= "Sorry Strings are not Anagrams";
+					return false;
+					}
+
+				}
+				for(var i in hashTable){
+					if (hashTable[i] !== 0) {
+						resultDiv.innerHTML = "Sorry Strings are not Anagrams";
+						return false;
+					}
+					else{
+						resultDiv.innerHTML ="Strings are Anagrams";
+
+					}
+				}
+				return true;
+			}
+
+		}
+	</script>
+
+</body>
+</html>
